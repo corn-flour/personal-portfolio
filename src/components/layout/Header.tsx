@@ -13,11 +13,11 @@ const links = [
 
 export default function Header() {
     return (
-        <header className='sticky top-0 z-50'>
+        <header className='sticky top-0 z-50 bg-white dark:bg-slate-800'>
             <div className='layout flex h-14 items-center justify-between'>
                 <UnstyledLink
                     href='/'
-                    className='font-bold hover:text-gray-600'
+                    className='font-serif text-xl hover:text-emerald-600'
                 >
                     harry
                 </UnstyledLink>
@@ -27,15 +27,17 @@ export default function Header() {
                             <li key={`${href}${label}`}>
                                 <UnstyledLink
                                     href={href}
-                                    className='hover:text-gray-600'
+                                    className='font-serif text-sm hover:text-emerald-600'
                                 >
                                     {label}
                                 </UnstyledLink>
                             </li>
                         ))}
+                        <li className='flex items-center'>
+                            <DarkModeToggle />
+                        </li>
                     </ul>
                 </nav>
-                <DarkModeToggle />
             </div>
         </header>
     )

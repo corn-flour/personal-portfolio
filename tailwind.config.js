@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const { fontFamily } = require('tailwindcss/defaultTheme')
+const plugin = require('tailwindcss/plugin')
 
 function withOpacityValue(variable) {
     return ({ opacityValue }) => {
@@ -13,10 +14,13 @@ function withOpacityValue(variable) {
 /** @type {import("@types/tailwindcss/tailwind-config").TailwindConfig } */
 module.exports = {
     content: ['./src/**/*.{js,jsx,ts,tsx}'],
+    darkMode: 'class',
     theme: {
         extend: {
             fontFamily: {
-                primary: ['Inter', ...fontFamily.sans],
+                // primary: ['Inter', ...fontFamily.sans],
+                primary: ['Merriweather Sans', ...fontFamily.sans],
+                serif: ['Merriweather', ...fontFamily.serif],
             },
             colors: {
                 primary: {
@@ -51,5 +55,10 @@ module.exports = {
             },
         },
     },
-    plugins: [require('@tailwindcss/forms')],
+    plugins: [
+        require('@tailwindcss/forms'),
+        plugin(({ addVariant }) => {
+            addVariant('checked', '&::checked')
+        }),
+    ],
 }
