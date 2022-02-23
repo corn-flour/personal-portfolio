@@ -3,6 +3,7 @@ import { NextPage } from 'next'
 import { useTheme } from 'next-themes'
 import React from 'react'
 import { BsMoonFill, BsSunFill } from 'react-icons/bs'
+import { RiCheckboxBlankCircleFill } from 'react-icons/ri'
 import { animated, useSpring } from 'react-spring'
 
 import { useLoaded } from '@/hooks/useLoaded'
@@ -13,7 +14,7 @@ type DarkModeToggleType = {
 }
 
 const DarkModeIcon = () => {
-    const { theme } = useTheme()
+    const { resolvedTheme } = useTheme()
     const props = useSpring({
         from: {
             opacity: 0,
@@ -24,28 +25,46 @@ const DarkModeIcon = () => {
             y: 0,
         },
     })
-    const icon = theme === 'dark' ? <BsSunFill /> : <BsMoonFill />
+    const icon = resolvedTheme === 'dark' ? <BsSunFill /> : <BsMoonFill />
 
     return (
-        <animated.div style={props} key={theme}>
+        <animated.div style={props} key={resolvedTheme}>
             {icon}
         </animated.div>
     )
 }
 
 const DarkModeToggle: NextPage<DarkModeToggleType> = ({ className, label }) => {
-    const { theme, setTheme } = useTheme()
+    const { resolvedTheme, setTheme } = useTheme()
     const loaded = useLoaded()
 
     // * Toggle would not work properly with server side rendering, can only render when client is loaded
-    if (!loaded) return <button></button>
+    // Return placeholder button
+    if (!loaded)
+        return (
+            <button
+                aria-label='Placeholder button'
+                disabled={true}
+                className={clsx(
+                    'rounded-full p-2 text-lg text-transparent transition-all duration-300',
+                    className
+                )}
+            >
+                {label}
+                <RiCheckboxBlankCircleFill />
+            </button>
+        )
 
     return (
         <button
-            aria-label={`Activate ${theme === 'dark' ? 'light' : 'dark'} mode`}
-            onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+            aria-label={`Activate ${
+                resolvedTheme === 'dark' ? 'light' : 'dark'
+            } mode`}
+            onClick={() =>
+                setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')
+            }
             className={clsx(
-                theme === 'dark'
+                resolvedTheme === 'dark'
                     ? 'text-orange-400 hover:text-orange-200'
                     : 'text-blue-400 hover:text-blue-600',
                 'rounded-full p-2 text-lg transition-all duration-300',
@@ -53,7 +72,7 @@ const DarkModeToggle: NextPage<DarkModeToggleType> = ({ className, label }) => {
             )}
         >
             {label}
-            <DarkModeIcon key={theme} />
+            <DarkModeIcon key={resolvedTheme} />
         </button>
     )
 }
