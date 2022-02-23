@@ -27,7 +27,7 @@ const MobileMenu: NextPage<MobileMenuProps> = ({ open, setOpen }) => {
     return (
         <div
             className={clsx(
-                open ? 'left-0' : 'left-full',
+                open ? 'visible left-0' : 'invisible left-full',
                 'fixed top-0 z-20 flex h-screen w-screen flex-col items-start justify-between bg-white pr-12 pt-28 pl-12 pb-12 transition-all duration-300 dark:bg-slate-800 sm:hidden'
             )}
         >
@@ -37,7 +37,7 @@ const MobileMenu: NextPage<MobileMenuProps> = ({ open, setOpen }) => {
                         <UnderlineLink
                             href={href}
                             className={clsx(
-                                'font-serif text-2xl font-light tracking-wide hover:text-emerald-700 dark:hover:text-emerald-500',
+                                'font-serif text-2xl font-light tracking-wide hover:text-emerald-700 focus:text-emerald-700 dark:hover:text-emerald-500 dark:focus:text-emerald-500',
                                 router.asPath === href
                                     ? 'text-emerald-600 dark:text-emerald-400'
                                     : ''
