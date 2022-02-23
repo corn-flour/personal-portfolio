@@ -25,7 +25,7 @@ const MobileMenu: NextPage<MobileMenuProps> = ({ open, setOpen }) => {
         <div
             className={clsx(
                 open ? 'left-0' : 'left-full',
-                'fixed top-0 z-20 flex h-screen w-screen flex-col items-start justify-between bg-white pr-12 pt-28 pl-12 pb-12 transition-all duration-300 dark:bg-slate-800'
+                'fixed top-0 z-20 flex h-screen w-screen flex-col items-start justify-between bg-white pr-12 pt-28 pl-12 pb-12 transition-all duration-300 dark:bg-slate-800 sm:hidden'
             )}
         >
             <ul className='flex flex-col gap-8 '>
