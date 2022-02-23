@@ -4,7 +4,12 @@ import { useTheme } from 'next-themes'
 import React from 'react'
 import { BsMoonFill, BsSunFill } from 'react-icons/bs'
 
-const DarkModeToggle: NextPage = () => {
+type DarkModeToggleType = {
+    className?: string
+    label?: string | React.ReactNode
+}
+
+const DarkModeToggle: NextPage<DarkModeToggleType> = ({ className, label }) => {
     const { theme, setTheme } = useTheme()
 
     const icon = theme === 'dark' ? <BsSunFill /> : <BsMoonFill />
@@ -17,9 +22,11 @@ const DarkModeToggle: NextPage = () => {
                 theme === 'dark'
                     ? 'text-orange-400 hover:text-orange-200'
                     : 'text-blue-400 hover:text-blue-600',
-                'p-1 text-lg'
+                'p-1 text-lg',
+                className
             )}
         >
+            {label}
             {icon}
         </button>
     )
