@@ -22,7 +22,7 @@ const DarkModeToggle: NextPage<DarkModeToggleType> = ({ className, label }) => {
                 theme === 'dark'
                     ? 'text-orange-400 hover:text-orange-200'
                     : 'text-blue-400 hover:text-blue-600',
-                'p-1 text-lg',
+                'p-1 text-lg transition-all duration-300',
                 className
             )}
         >

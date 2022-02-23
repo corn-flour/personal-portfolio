@@ -1,5 +1,6 @@
 import clsx from 'clsx'
 import { NextPage } from 'next'
+import { useRouter } from 'next/router'
 import * as React from 'react'
 import { useState } from 'react'
 
@@ -21,6 +22,8 @@ type MobileMenuProps = {
 }
 
 const MobileMenu: NextPage<MobileMenuProps> = ({ open, setOpen }) => {
+    const router = useRouter()
+
     return (
         <div
             className={clsx(
@@ -33,7 +36,12 @@ const MobileMenu: NextPage<MobileMenuProps> = ({ open, setOpen }) => {
                     <li key={`${href}${label}`}>
                         <UnderlineLink
                             href={href}
-                            className='font-serif text-2xl font-light tracking-wide hover:text-emerald-600'
+                            className={clsx(
+                                'font-serif text-2xl font-light tracking-wide hover:text-emerald-700 dark:hover:text-emerald-500',
+                                router.asPath === href
+                                    ? 'text-emerald-600 dark:text-emerald-400'
+                                    : ''
+                            )}
                             onClick={() => setOpen(false)}
                         >
                             {label}
@@ -58,6 +66,7 @@ const MobileMenu: NextPage<MobileMenuProps> = ({ open, setOpen }) => {
 
 const Header: NextPage = () => {
     const [menuOpen, setMenuOpen] = useState(false)
+    const router = useRouter()
 
     const toggleMenu = () => {
         setMenuOpen(!menuOpen)
@@ -68,19 +77,24 @@ const Header: NextPage = () => {
             <div className='layout flex items-center justify-between py-8'>
                 <UnstyledLink
                     href='/'
-                    className='font-serif text-3xl transition-all duration-300 hover:text-emerald-600'
+                    className='font-serif text-3xl tracking-wider transition-all duration-300 hover:text-emerald-600'
                 >
                     harry
                 </UnstyledLink>
 
                 {/* #region  /**=========== Desktop Menu =========== */}
                 <nav className='hidden sm:block'>
-                    <ul className='flex items-center justify-between space-x-4'>
+                    <ul className='flex items-center justify-between space-x-8'>
                         {links.map(({ href, label }) => (
                             <li key={`${href}${label}`}>
                                 <UnderlineLink
                                     href={href}
-                                    className='font-serif text-sm font-light tracking-wide hover:text-emerald-600'
+                                    className={clsx(
+                                        'font-serif text-sm font-light tracking-wide hover:text-emerald-700 dark:hover:text-emerald-500',
+                                        router.asPath === href
+                                            ? 'text-emerald-600 dark:text-emerald-400'
+                                            : ''
+                                    )}
                                 >
                                     {label}
                                 </UnderlineLink>
