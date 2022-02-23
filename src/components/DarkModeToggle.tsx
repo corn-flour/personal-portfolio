@@ -5,6 +5,8 @@ import React from 'react'
 import { BsMoonFill, BsSunFill } from 'react-icons/bs'
 import { animated, useSpring } from 'react-spring'
 
+import { useLoaded } from '@/hooks/useLoaded'
+
 type DarkModeToggleType = {
     className?: string
     label?: string | React.ReactNode
@@ -22,7 +24,6 @@ const DarkModeIcon = () => {
             y: 0,
         },
     })
-
     const icon = theme === 'dark' ? <BsSunFill /> : <BsMoonFill />
 
     return (
@@ -34,6 +35,10 @@ const DarkModeIcon = () => {
 
 const DarkModeToggle: NextPage<DarkModeToggleType> = ({ className, label }) => {
     const { theme, setTheme } = useTheme()
+    const loaded = useLoaded()
+
+    // * Toggle would not work properly with server side rendering, can only render when client is loaded
+    if (!loaded) return <button></button>
 
     return (
         <button
