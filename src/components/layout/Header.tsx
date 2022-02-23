@@ -2,6 +2,8 @@ import * as React from 'react'
 
 import UnstyledLink from '@/components/links/UnstyledLink'
 
+import DarkModeToggle from '../DarkModeToggle'
+
 const links = [
     { href: '/', label: 'home' },
     { href: '/about', label: 'about' },
@@ -11,7 +13,7 @@ const links = [
 
 export default function Header() {
     return (
-        <header className='sticky top-0 z-50 bg-white'>
+        <header className='sticky top-0 z-50'>
             <div className='layout flex h-14 items-center justify-between'>
                 <UnstyledLink
                     href='/'
@@ -33,6 +35,7 @@ export default function Header() {
                         ))}
                     </ul>
                 </nav>
+                <DarkModeToggle />
             </div>
         </header>
     )
