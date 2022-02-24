@@ -29,6 +29,24 @@
 }
 
 @layer base {
+    /* #region  /**=========== Site Theme Color Palette =========== */
+    .text-color {
+        @apply text-zinc-800 dark:text-zinc-200;
+    }
+
+    .bg-color {
+        @apply bg-neutral-100 dark:bg-neutral-800;
+    }
+
+    .text-primary {
+        @apply text-primary-600 dark:text-primary-400;
+    }
+
+    .hover-primary {
+        @apply hover:text-primary-700 focus:text-primary-700 dark:hover:text-primary-400 dark:focus:text-primary-400;
+    }
+    /* #endregion  /**======== Site Theme Color Palette =========== */
+
     /* inter var - latin */
     @font-face {
         font-family: 'Inter';

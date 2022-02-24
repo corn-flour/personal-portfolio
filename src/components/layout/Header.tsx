@@ -28,7 +28,7 @@ const MobileMenu: NextPage<MobileMenuProps> = ({ open, setOpen }) => {
         <div
             className={clsx(
                 open ? 'visible left-0' : 'invisible left-full',
-                'fixed top-0 z-20 flex h-screen w-screen flex-col items-start justify-between bg-white pr-12 pt-28 pl-12 pb-12 transition-all duration-300 dark:bg-slate-800 sm:hidden'
+                'bg-color fixed top-0 z-20 flex h-screen w-screen flex-col items-start justify-between pr-12 pt-28 pl-12 pb-12 transition-all duration-300 sm:hidden'
             )}
         >
             <ul className='flex flex-col gap-8 '>
@@ -37,7 +37,7 @@ const MobileMenu: NextPage<MobileMenuProps> = ({ open, setOpen }) => {
                         <UnderlineLink
                             href={href}
                             className={clsx(
-                                'font-serif text-2xl font-light tracking-wide hover:text-primary-700 focus:text-primary-700 dark:hover:text-primary-500 dark:focus:text-primary-500',
+                                'hover-primary font-serif text-2xl font-light tracking-wide',
                                 router.asPath === href
                                     ? 'text-primary-600 dark:text-primary-400'
                                     : ''
@@ -73,11 +73,11 @@ const Header: NextPage = () => {
     }
 
     return (
-        <header className='sticky top-0 z-50 bg-white dark:bg-slate-800'>
+        <header className='bg-color sticky top-0 z-50 transition-colors duration-300'>
             <div className='layout flex items-center justify-between py-8'>
                 <UnstyledLink
                     href='/'
-                    className='font-serif text-3xl tracking-wider transition-all duration-300 hover:text-primary-600'
+                    className='hover-primary font-serif text-3xl tracking-wider transition-all duration-300'
                 >
                     harry
                 </UnstyledLink>
@@ -90,9 +90,9 @@ const Header: NextPage = () => {
                                 <UnderlineLink
                                     href={href}
                                     className={clsx(
-                                        'font-serif text-sm font-light tracking-wide hover:text-primary-700 dark:hover:text-primary-500',
+                                        'font-serif text-sm font-light tracking-wide',
                                         router.asPath === href
-                                            ? 'text-primary-600 dark:text-primary-400'
+                                            ? 'text-primary'
                                             : ''
                                     )}
                                 >
@@ -110,7 +110,7 @@ const Header: NextPage = () => {
                 {/* #region  /**=========== Mobile Menu =========== */}
                 <button
                     className={clsx(
-                        'absolute right-0 z-50 text-3xl hover:text-primary-600 sm:hidden',
+                        'absolute right-0 z-50 text-3xl sm:hidden',
                         menuOpen ? 'opened' : '',
                         'menu'
                     )}
