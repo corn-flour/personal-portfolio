@@ -1,9 +1,7 @@
 import { NextPage } from 'next'
 import React from 'react'
-import { BsGithub, BsLinkedin } from 'react-icons/bs'
 
 import UnderlineLink from '@/components/links/UnderlineLink'
-import UnstyledLink from '@/components/links/UnstyledLink'
 import NextImage from '@/components/NextImage'
 import ListItem from '@/components/text/ListItem'
 import Paragraph from '@/components/text/Paragraph'
@@ -62,25 +60,6 @@ const About: NextPage = () => {
                                 let&apos;s get in touch!
                             </UnderlineLink>
                         </Paragraph>
-
-                        <ul className='flex gap-8'>
-                            <ListItem>
-                                <UnstyledLink
-                                    href='https://github.com/bte234'
-                                    className='text-2xl hover:text-primary-600'
-                                >
-                                    <BsGithub />
-                                </UnstyledLink>
-                            </ListItem>
-                            <ListItem>
-                                <UnstyledLink
-                                    href='https://linkedin.com/in/huyanh149'
-                                    className='text-2xl hover:text-primary-600'
-                                >
-                                    <BsLinkedin />
-                                </UnstyledLink>
-                            </ListItem>
-                        </ul>
                     </div>
                 </div>
 

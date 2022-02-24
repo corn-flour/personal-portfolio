@@ -4,8 +4,7 @@ import { useRouter } from 'next/router'
 import * as React from 'react'
 import { useState } from 'react'
 
-import UnstyledLink from '@/components/links/UnstyledLink'
-
+import Logo from './Logo'
 import DarkModeToggle from '../DarkModeToggle'
 import UnderlineLink from '../links/UnderlineLink'
 
@@ -75,12 +74,7 @@ const Header: NextPage = () => {
     return (
         <header className='bg-color sticky top-0 z-50 transition-colors duration-300'>
             <div className='layout flex items-center justify-between py-8'>
-                <UnstyledLink
-                    href='/'
-                    className='hover-primary font-serif text-3xl tracking-wider transition-all duration-300'
-                >
-                    harry
-                </UnstyledLink>
+                <Logo />
 
                 {/* #region  /**=========== Desktop Menu =========== */}
                 <nav className='hidden sm:block'>
