@@ -37,9 +37,9 @@ const MobileMenu: NextPage<MobileMenuProps> = ({ open, setOpen }) => {
                         <UnderlineLink
                             href={href}
                             className={clsx(
-                                'font-serif text-2xl font-light tracking-wide hover:text-emerald-700 focus:text-emerald-700 dark:hover:text-emerald-500 dark:focus:text-emerald-500',
+                                'font-serif text-2xl font-light tracking-wide hover:text-primary-700 focus:text-primary-700 dark:hover:text-primary-500 dark:focus:text-primary-500',
                                 router.asPath === href
-                                    ? 'text-emerald-600 dark:text-emerald-400'
+                                    ? 'text-primary-600 dark:text-primary-400'
                                     : ''
                             )}
                             onClick={() => setOpen(false)}
@@ -77,7 +77,7 @@ const Header: NextPage = () => {
             <div className='layout flex items-center justify-between py-8'>
                 <UnstyledLink
                     href='/'
-                    className='font-serif text-3xl tracking-wider transition-all duration-300 hover:text-emerald-600'
+                    className='font-serif text-3xl tracking-wider transition-all duration-300 hover:text-primary-600'
                 >
                     harry
                 </UnstyledLink>
@@ -90,9 +90,9 @@ const Header: NextPage = () => {
                                 <UnderlineLink
                                     href={href}
                                     className={clsx(
-                                        'font-serif text-sm font-light tracking-wide hover:text-emerald-700 dark:hover:text-emerald-500',
+                                        'font-serif text-sm font-light tracking-wide hover:text-primary-700 dark:hover:text-primary-500',
                                         router.asPath === href
-                                            ? 'text-emerald-600 dark:text-emerald-400'
+                                            ? 'text-primary-600 dark:text-primary-400'
                                             : ''
                                     )}
                                 >
@@ -110,7 +110,7 @@ const Header: NextPage = () => {
                 {/* #region  /**=========== Mobile Menu =========== */}
                 <button
                     className={clsx(
-                        'absolute right-0 z-50 text-3xl hover:text-emerald-600 sm:hidden',
+                        'absolute right-0 z-50 text-3xl hover:text-primary-600 sm:hidden',
                         menuOpen ? 'opened' : '',
                         'menu'
                     )}
