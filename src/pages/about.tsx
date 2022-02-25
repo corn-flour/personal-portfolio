@@ -70,6 +70,7 @@ const About: NextPage = () => {
                     width='967'
                     height='967'
                     alt='My picture'
+                    priority={true}
                 />
             </section>
             {/* #endregion  /**======== About Me Section =========== */}

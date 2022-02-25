@@ -44,7 +44,6 @@ const DarkModeToggle: NextPage<DarkModeToggleType> = ({ className, label }) => {
         return (
             <button
                 aria-label='Placeholder button'
-                disabled={true}
                 className={clsx(
                     'rounded-full p-2 text-lg text-transparent transition-all duration-300',
                     className
@@ -67,7 +66,7 @@ const DarkModeToggle: NextPage<DarkModeToggleType> = ({ className, label }) => {
                 resolvedTheme === 'dark'
                     ? 'text-orange-400 hover:text-orange-200'
                     : 'text-blue-400 hover:text-blue-600',
-                'rounded-full p-2 text-lg transition-all duration-300',
+                'rounded-full p-2 text-lg transition-all',
                 className
             )}
         >
