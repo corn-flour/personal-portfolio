@@ -73,7 +73,7 @@ const Header: NextPage = () => {
 
     return (
         <header className='bg-default sticky top-0 z-50 transition-colors '>
-            <div className='layout flex items-center justify-between py-8'>
+            <div className='layout relative flex items-center justify-between py-8'>
                 <Logo />
 
                 {/* #region  /**=========== Desktop Menu =========== */}
@@ -104,7 +104,7 @@ const Header: NextPage = () => {
                 {/* #region  /**=========== Mobile Menu =========== */}
                 <button
                     className={clsx(
-                        'absolute right-0 z-50 text-3xl sm:hidden',
+                        'absolute -right-10 z-50 text-3xl sm:hidden',
                         menuOpen ? 'opened' : '',
                         'menu'
                     )}
