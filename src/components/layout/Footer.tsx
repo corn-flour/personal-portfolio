@@ -41,6 +41,7 @@ const Footer: NextPage = () => {
                         <UnstyledLink
                             href='https://github.com/bte234'
                             className='hover-primary text-lg'
+                            aria-label='My Github'
                         >
                             <BsGithub />
                         </UnstyledLink>
@@ -49,6 +50,7 @@ const Footer: NextPage = () => {
                         <UnstyledLink
                             href='https://linkedin.com/in/huyanh149'
                             className='hover-primary text-lg'
+                            aria-label='My LinkedIn'
                         >
                             <BsLinkedin />
                         </UnstyledLink>
