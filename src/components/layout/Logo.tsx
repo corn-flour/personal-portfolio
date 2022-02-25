@@ -7,7 +7,7 @@ const Logo: NextPage = () => {
     return (
         <UnstyledLink
             href='/'
-            className='hover-primary text-default font-serif text-3xl tracking-wider transition-all'
+            className='hover-text-primary text-default font-serif text-3xl tracking-wider transition-all'
         >
             harry
         </UnstyledLink>

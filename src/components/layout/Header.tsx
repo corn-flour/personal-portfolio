@@ -27,7 +27,7 @@ const MobileMenu: NextPage<MobileMenuProps> = ({ open, setOpen }) => {
         <div
             className={clsx(
                 open ? 'visible left-0' : 'invisible left-full',
-                'bg-default fixed top-0 z-20 flex h-screen w-screen flex-col items-start justify-between pr-12 pt-28 pl-12 pb-12 transition-all duration-300 sm:hidden'
+                'bg-default fixed top-0 z-20 flex h-screen w-screen flex-col items-start justify-between pr-12 pt-28 pl-12 pb-12 transition-all  sm:hidden'
             )}
         >
             <ul className='flex flex-col gap-8 '>
@@ -36,7 +36,7 @@ const MobileMenu: NextPage<MobileMenuProps> = ({ open, setOpen }) => {
                         <UnderlineLink
                             href={href}
                             className={clsx(
-                                'hover-primary font-serif text-2xl font-light tracking-wide',
+                                'hover-text-primary font-serif text-2xl font-light tracking-wide',
                                 router.asPath === href
                                     ? 'text-primary-600 dark:text-primary-400'
                                     : ''
@@ -72,7 +72,7 @@ const Header: NextPage = () => {
     }
 
     return (
-        <header className='bg-default sticky top-0 z-50 transition-colors duration-300'>
+        <header className='bg-default sticky top-0 z-50 transition-colors '>
             <div className='layout flex items-center justify-between py-8'>
                 <Logo />
 

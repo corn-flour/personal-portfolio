@@ -45,7 +45,7 @@ const DarkModeToggle: NextPage<DarkModeToggleType> = ({ className, label }) => {
             <button
                 aria-label='Placeholder button'
                 className={clsx(
-                    'rounded-full p-2 text-lg text-transparent transition-all duration-300',
+                    'rounded-full p-2 text-lg text-transparent transition-all ',
                     className
                 )}
             >
