@@ -30,7 +30,7 @@ const About: NextPage = () => {
                 <div className='flex items-center md:flex-1'>
                     <div>
                         <h1 className='font-serif text-2xl font-light md:mb-12 md:text-right md:text-4xl lg:text-6xl'>
-                            hi, i&apos;m harry.
+                            hi, i&apos;m harry!
                         </h1>
                         <Paragraph className='md:mr-[10%]'>
                             I am a Web developer currently living and working in
