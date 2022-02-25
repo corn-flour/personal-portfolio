@@ -17,7 +17,7 @@ const links = [
 
 const Footer: NextPage = () => {
     return (
-        <footer className='layout border-t border-t-neutral-200 dark:border-t-neutral-700'>
+        <footer className='layout border-light border-t'>
             <div className='flex flex-col items-center justify-between py-8 md:flex-row'>
                 <nav className='sm:block'>
                     <ul className='flex items-center justify-between space-x-8'>
@@ -57,7 +57,7 @@ const Footer: NextPage = () => {
                     </ListItem>
                 </ul>
             </div>
-            <div className='mb-2 text-center text-xs font-thin text-zinc-500'>
+            <div className='text-light mb-2 text-center text-xs font-thin'>
                 <span>
                     Copyright © 2022 Huy Anh Nguyen. All rights reserved.
                 </span>

@@ -30,11 +30,11 @@
 
 @layer base {
     /* #region  /**=========== Site Theme Color Palette =========== */
-    .text-color {
+    .text-default {
         @apply text-zinc-800 dark:text-zinc-200;
     }
 
-    .bg-color {
+    .bg-default {
         @apply bg-neutral-100 dark:bg-neutral-800;
     }
 
@@ -42,8 +42,20 @@
         @apply bg-primary-100/10 dark:bg-primary-900/10;
     }
 
+    .bg-light {
+        @apply bg-zinc-400 dark:bg-zinc-600;
+    }
+
     .text-primary {
         @apply text-primary-600 dark:text-primary-400;
+    }
+
+    .text-light {
+        @apply text-zinc-400 dark:text-zinc-600;
+    }
+
+    .border-light {
+        @apply border-zinc-400 dark:border-zinc-600;
     }
 
     .hover-primary {
