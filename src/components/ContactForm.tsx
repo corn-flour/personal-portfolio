@@ -20,6 +20,8 @@ const ContactForm: NextPage = () => {
             ...inputs,
             [field]: value,
         })
+        // remove success message if user types again
+        setSubmitted(false)
     }
 
     const submitForm = (e: React.FormEvent<HTMLFormElement>) => {
@@ -39,7 +41,7 @@ const ContactForm: NextPage = () => {
                     type='text'
                     value={inputs.name}
                     onChange={(e) => setField('name', e.target.value)}
-                    className='bg-default text-default transition-colors'
+                    className='bg-default text-default transition-colors focus:border-primary-500 focus:shadow-none focus:ring-primary-500'
                 />
             </label>
             <label className='flex flex-col gap-2'>
@@ -48,7 +50,7 @@ const ContactForm: NextPage = () => {
                     type='text'
                     value={inputs.email}
                     onChange={(e) => setField('email', e.target.value)}
-                    className='bg-default text-default transition-colors'
+                    className='bg-default text-default transition-colors focus:border-primary-500 focus:shadow-none focus:ring-primary-500'
                 />
             </label>
             <label className='flex flex-col gap-2'>
@@ -56,7 +58,7 @@ const ContactForm: NextPage = () => {
                 <textarea
                     value={inputs.message}
                     onChange={(e) => setField('message', e.target.value)}
-                    className='bg-default text-default transition-colors'
+                    className='bg-default text-default transition-colors focus:border-primary-500 focus:shadow-none focus:ring-primary-500'
                 />
             </label>
 
