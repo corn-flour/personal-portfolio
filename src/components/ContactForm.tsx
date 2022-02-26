@@ -12,8 +12,11 @@ const initialInputs = {
 
 const ContactForm: NextPage = () => {
     const [inputs, setInputs] = React.useState(initialInputs)
-
     const [submitted, setSubmitted] = React.useState(false)
+    const [isError, setIsError] = React.useState(false)
+
+    // * Special honeypot value to detect spam bots
+    const [honeypot, setHoneypot] = React.useState('')
 
     const setField = (field: inputFields, value: string) => {
         setInputs({
@@ -24,41 +27,82 @@ const ContactForm: NextPage = () => {
         setSubmitted(false)
     }
 
-    const submitForm = (e: React.FormEvent<HTMLFormElement>) => {
+    const submitForm = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
 
-        // TODO: handle form submit
+        //#region  //*=========== Handle Honeypot ===========
+        if (honeypot) {
+            setSubmitted(true)
+            return
+        }
+        //#endregion  //*======== Handle Honeypot ===========
 
-        setSubmitted(true)
-        setInputs(initialInputs)
+        const res = await fetch('/api/contact', {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json, text/plain, */*',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(inputs),
+        }).catch(() => {
+            // fetch request fails to complete
+            setIsError(true)
+            return
+        })
+
+        if (res && res.status === 200) {
+            setSubmitted(true)
+            setInputs(initialInputs)
+        } else {
+            // response status returns error
+            setIsError(true)
+        }
     }
 
     return (
         <form className='flex flex-col gap-8' onSubmit={submitForm}>
             <label className='flex flex-col gap-2'>
-                <span className='font-light italic'>Full name:</span>
+                <span className='font-light italic'>Full name: *</span>
                 <input
                     type='text'
                     value={inputs.name}
                     onChange={(e) => setField('name', e.target.value)}
                     className='bg-default text-default transition-colors focus:border-primary-500 focus:shadow-none focus:ring-primary-500'
+                    autoComplete='name'
+                    required={true}
                 />
             </label>
             <label className='flex flex-col gap-2'>
-                <span className='font-light italic'>Email address:</span>
+                <span className='font-light italic'>Email address: *</span>
                 <input
                     type='text'
                     value={inputs.email}
                     onChange={(e) => setField('email', e.target.value)}
                     className='bg-default text-default transition-colors focus:border-primary-500 focus:shadow-none focus:ring-primary-500'
+                    autoComplete='email'
+                    required={true}
                 />
             </label>
+
+            {/* #region  /**=========== HoneyPot Input =========== */}
+            <label className='definitely-form-field-not-false'>
+                <span>Phone :</span>
+                <input
+                    type='text'
+                    value={honeypot}
+                    onChange={(e) => setHoneypot(e.target.value)}
+                    autoComplete='off'
+                />
+            </label>
+            {/* #endregion  /**======== HoneyPot Input =========== */}
+
             <label className='flex flex-col gap-2'>
-                <span className='font-light italic'>Message:</span>
+                <span className='font-light italic'>Message: *</span>
                 <textarea
                     value={inputs.message}
                     onChange={(e) => setField('message', e.target.value)}
                     className='bg-default text-default transition-colors focus:border-primary-500 focus:shadow-none focus:ring-primary-500'
+                    required={true}
                 />
             </label>
 
@@ -76,6 +120,16 @@ const ContactForm: NextPage = () => {
                 <></>
             )}
             {/* #endregion  /**======== Success Message =========== */}
+
+            {/* #region  /**=========== Error Message =========== */}
+            {isError ? (
+                <span className='text-center text-sm font-light italic text-red-600 dark:text-red-500'>
+                    Sorry, an unexpected error has occurred :(
+                </span>
+            ) : (
+                <></>
+            )}
+            {/* #endregion  /**======== Error Message =========== */}
         </form>
     )
 }

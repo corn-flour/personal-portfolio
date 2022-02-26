@@ -113,6 +113,10 @@
         @apply mx-auto w-11/12;
     }
 
+    .definitely-form-field-not-false {
+        display: none;
+    }
+
     /* Right side to screen end, left side match layout margin */
     .layout-left {
         @apply layout md:mx-[initial] md:ml-auto md:w-auto md:max-w-none md:pl-[calc((100%-min(91.66667%,68.75rem))/2)];
