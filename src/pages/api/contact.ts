@@ -1,7 +1,8 @@
+/* eslint-disable no-console */
 import { NextApiRequest, NextApiResponse } from 'next'
 import nodemailer from 'nodemailer'
 
-const postContact = (req: NextApiRequest, res: NextApiResponse) => {
+const postContact = async (req: NextApiRequest, res: NextApiResponse) => {
     //#region  //*=========== Validate fields ===========
     const { name, email, message } = req.body
     if (!name || !email || !message) {
@@ -30,15 +31,15 @@ const postContact = (req: NextApiRequest, res: NextApiResponse) => {
         html: `<div>${req.body.message}</div> <p>Sent from: ${req.body.email}</p>`,
     }
 
-    transporter.sendMail(mailData, (err) => {
-        if (err) {
-            return res.status(500).json({
-                name: err.name,
-                error: err.message,
-            })
-        }
+    const info = await transporter.sendMail(mailData).catch((err) => {
+        console.error('/api/contact error:', err.message)
+        return res.status(500).json({
+            name: err.name,
+            error: err.message,
+        })
     })
 
+    console.info('/api/contact response info', info)
     return res.status(200).json({
         status: 'success',
     })
