@@ -35,7 +35,7 @@ const ProjectPage = ({ code, frontmatter }: ProjectPageProps) => {
             />
             {/* #region  /**=========== Article meta information =========== */}
             <div className='my-8'>
-                <h1 className='mb-4 font-serif text-4xl'>
+                <h1 className='mb-4 font-serif text-4xl lowercase'>
                     {frontmatter.title}
                 </h1>
                 {!!frontmatter.tech && <p>{frontmatter.tech}</p>}

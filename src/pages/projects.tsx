@@ -52,7 +52,7 @@ const Projects = ({
                             onClick={() => setFilter(f.val)}
                             className={clsxm(
                                 'bg-light py-2 px-8',
-                                'text-xs uppercase',
+                                'text-xs font-light uppercase',
                                 'transition-colors',
                                 'hover:bg-zinc-400 dark:hover:bg-zinc-500',
                                 f.val === filter &&

@@ -60,7 +60,7 @@ const ContentCard = ({
                     >
                         <h3
                             className={clsxm(
-                                'font-serif',
+                                'font-serif lowercase',
                                 'mb-8 pb-2',
                                 'after:absolute after:left-0 after:top-full after:contents after:h-[2px] after:w-full',
                                 'after:bg-primary-500/75',
@@ -81,7 +81,7 @@ const ContentCard = ({
                             {!!category && (
                                 <span
                                     className={clsxm(
-                                        'text-xs uppercase',
+                                        'text-xs font-light uppercase tracking-wider',
                                         'bg-primary-500/50 px-2 py-1'
                                     )}
                                 >
@@ -101,7 +101,7 @@ const ContentCard = ({
                         <p
                             className={clsxm(
                                 'mb-5 opacity-0 transition duration-300',
-                                'font-light',
+                                'text-sm font-light md:text-xs lg:text-sm',
                                 'group-hover:opacity-100',
                                 'group-focus-within:opacity-100'
                             )}
@@ -113,10 +113,10 @@ const ContentCard = ({
                     <ArrowLink
                         as='span'
                         className={clsxm(
-                            'flex items-center',
-                            'font-light',
-                            'group-hover:font-semibold group-hover:text-primary-500',
-                            'group-focus-within:font-semibold group-focus-within:text-primary-500'
+                            'flex items-center py-1',
+                            'font-light uppercase',
+                            'group-hover:text-primary-500',
+                            'group-focus-within:text-primary-500'
                         )}
                     >
                         Read more
