@@ -66,7 +66,7 @@ const Projects = ({
                 {/* #endregion  /**======== Category Filter =========== */}
 
                 {/* #region  /**=========== Project List =========== */}
-                <ul className='mb-16 grid gap-4 md:grid-cols-2'>
+                <ul className='mb-16 grid gap-8 md:grid-cols-2'>
                     {filteredProjects.map((project, i) => (
                         <li key={i}>
                             <ContentCard
