@@ -1,4 +1,7 @@
+import { useTheme } from 'next-themes'
 import * as React from 'react'
+
+import HomeGraphics from '@/components/HomeGraphics'
 
 /**
  * SVGR Support
@@ -13,5 +16,26 @@ import * as React from 'react'
 // to customize the default configuration.
 
 export default function HomePage() {
-    return <section></section>
+    const { resolvedTheme } = useTheme()
+
+    return (
+        <>
+            <section className='py-16'>
+                <div className='layout flex flex-wrap items-center justify-center gap-16 md:flex-row'>
+                    <HomeGraphics />
+                    <div>
+                        <h1 className='mb-4 font-serif text-7xl font-normal lowercase tracking-wider text-primary-800 dark:text-primary-100'>
+                            {!!resolvedTheme &&
+                                (resolvedTheme === 'light'
+                                    ? 'Good Morning'
+                                    : 'Good Evening')}
+                        </h1>
+                        <h2 className='text-2xl font-light uppercase'>
+                            Welcome to my portfolio!
+                        </h2>
+                    </div>
+                </div>
+            </section>
+        </>
+    )
 }
