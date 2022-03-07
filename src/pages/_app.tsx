@@ -4,7 +4,6 @@ import { ThemeProvider } from 'next-themes'
 import '@/styles/globals.css'
 // !STARTERCONF This is for demo purposes, remove @/styles/colors.css import immediately
 import '@/styles/colors.css'
-import '@/styles/graphics.css'
 
 import Layout from '@/components/layout/Layout'
 import Seo from '@/components/Seo'

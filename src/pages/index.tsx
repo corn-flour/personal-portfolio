@@ -5,6 +5,8 @@ import { getAllContents } from '@/lib/mdx'
 
 import ContentCard from '@/components/card/ContentCard'
 import HomeGraphics from '@/components/HomeGraphics'
+import ArrowLink from '@/components/links/ArrowLink'
+import ButtonLink from '@/components/links/ButtonLink'
 import UnderlineLink from '@/components/links/UnderlineLink'
 
 /**
@@ -28,29 +30,39 @@ const Home = ({ projects }: InferGetStaticPropsType<typeof getStaticProps>) => {
 
     return (
         <>
-            <section className='py-16'>
-                <div className='layout flex flex-wrap items-center justify-center gap-16 md:flex-row'>
-                    <HomeGraphics />
-                    <div>
-                        <span>Hi, my name is</span>
+            <section>
+                <div className='layout flex flex-col-reverse items-center justify-between gap-16 pt-20 pb-40 lg:flex-row'>
+                    <HomeGraphics className='flex-1' />
+                    <div className='flex flex-col items-end'>
                         <h1 className='mb-4 font-serif text-7xl font-normal lowercase tracking-wider text-primary-800 dark:text-primary-100'>
-                            huy anh nguyen,
+                            harry nguyen
                         </h1>
-                        <p className='text-2xl font-light uppercase'>
-                            and I am a web developer!
+                        <p className='text-xl font-light uppercase'>
+                            full stack web developer
                         </p>
                     </div>
                 </div>
             </section>
             <section>
-                <div className='layout py-16'>
-                    <h2>Welcome to my portfolio!</h2>
-                    <UnderlineLink href='/about'>about me</UnderlineLink>
+                <div className='bg-light py-32'>
+                    <div className='layout'>
+                        <h2 className='mb-8 font-serif text-xl font-normal lowercase md:text-3xl'>
+                            Welcome to my portfolio!
+                        </h2>
+                        <ArrowLink
+                            href='/about'
+                            className='font-light uppercase md:text-lg'
+                        >
+                            about me
+                        </ArrowLink>
+                    </div>
                 </div>
             </section>
 
-            <section className='layout my-16'>
-                <h2>my featured project</h2>
+            <section className='layout my-16 flex flex-col items-start'>
+                <h2 className='mb-8 font-serif text-xl font-normal lowercase md:text-3xl'>
+                    featured project
+                </h2>
 
                 <ContentCard
                     slug={featured.slug}
@@ -61,12 +73,21 @@ const Home = ({ projects }: InferGetStaticPropsType<typeof getStaticProps>) => {
                     category={featured.frontmatter.category}
                 />
 
-                <UnderlineLink href='/projects'>see more</UnderlineLink>
+                <UnderlineLink
+                    href='/projects'
+                    className='mt-12 self-center font-light uppercase md:text-lg'
+                >
+                    see all projects
+                </UnderlineLink>
             </section>
 
             <section className='layout py-16'>
-                <h2>let&apos;s work together!</h2>
-                <UnderlineLink href='/contact'>Contact me</UnderlineLink>
+                <h2 className='mb-8 font-serif text-xl font-normal lowercase md:text-3xl'>
+                    let&apos;s work together!
+                </h2>
+                <ButtonLink variant='outline' href='/contact'>
+                    contact me
+                </ButtonLink>
             </section>
         </>
     )
