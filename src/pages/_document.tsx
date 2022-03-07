@@ -21,7 +21,7 @@ class MyDocument extends Document {
                         rel='stylesheet'
                     />
                 </Head>
-                <body className='bg-default text-default transition-colors duration-1000'>
+                <body className='bg-default text-default transition-colors'>
                     <Main />
                     <NextScript />
                 </body>

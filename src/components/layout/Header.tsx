@@ -72,7 +72,7 @@ const Header: NextPage = () => {
     }
 
     return (
-        <header className='bg-default sticky top-0 z-10 transition-colors duration-1000'>
+        <header className='bg-default sticky top-0 z-10 transition-colors'>
             <div className='layout relative flex items-center justify-between py-8'>
                 <Logo />
 
