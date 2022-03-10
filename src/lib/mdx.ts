@@ -25,6 +25,7 @@ export const getAllContents = (type: string) => {
                 slug,
             }
         })
+        .sort((a, b) => (a.frontmatter.year < b.frontmatter.year ? 1 : -1))
 }
 
 export const getSingleContent = async (slug: string, type: string) => {
