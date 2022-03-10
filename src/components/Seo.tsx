@@ -3,12 +3,10 @@ import { useRouter } from 'next/router'
 
 import { openGraph } from '@/lib/helper'
 
-// !STARTERCONF Change these default meta
 const defaultMeta = {
     title: 'Harry Nguyen',
     siteName: 'Harry Nguyen',
     description: "Harry Nguyen's personal portfolio",
-    /** Without additional '/' on the end, e.g. https://theodorusclarence.com */
     url: 'https://harrynguyendev.com',
     type: 'website',
     robots: 'follow, index',
@@ -98,7 +96,6 @@ type Favicons = {
     type?: string
 }
 
-// !STARTERCONF this is the default favicon, you can generate your own from https://www.favicon-generator.org/ then replace the whole /public/favicon folder
 const favicons: Array<Favicons> = [
     {
         rel: 'apple-touch-icon',
