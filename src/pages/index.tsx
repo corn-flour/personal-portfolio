@@ -105,7 +105,7 @@ const Home = ({ projects }: InferGetStaticPropsType<typeof getStaticProps>) => {
                     <ButtonLink
                         variant='outline'
                         href='/projects'
-                        className='mt-4'
+                        className='mt-8'
                     >
                         see more projects
                     </ButtonLink>
