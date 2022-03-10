@@ -7,7 +7,7 @@ import ContentCard from '@/components/card/ContentCard'
 import HomeGraphics from '@/components/HomeGraphics'
 import ArrowLink from '@/components/links/ArrowLink'
 import ButtonLink from '@/components/links/ButtonLink'
-import UnderlineLink from '@/components/links/UnderlineLink'
+import Timeline from '@/components/Timeline'
 
 /**
  * SVGR Support
@@ -24,9 +24,7 @@ import UnderlineLink from '@/components/links/UnderlineLink'
 const Home = ({ projects }: InferGetStaticPropsType<typeof getStaticProps>) => {
     // get featured project
     // only display one
-    const featured = projects.filter(
-        (project) => project.frontmatter.featured
-    )[0]
+    const features = projects.filter((project) => project.frontmatter.featured)
 
     return (
         <>
@@ -46,48 +44,83 @@ const Home = ({ projects }: InferGetStaticPropsType<typeof getStaticProps>) => {
             <section>
                 <div className='bg-light py-32'>
                     <div className='layout'>
-                        <h2 className='mb-8 font-serif text-xl font-normal lowercase md:text-3xl'>
+                        <h2 className='mb-4 font-serif text-xl font-semibold lowercase md:text-3xl'>
                             Welcome to my portfolio!
                         </h2>
+                        <p className='mb-4 text-lg font-light'>
+                            I&#39;m a junior developer who enjoys coding and
+                            making things.
+                        </p>
                         <ArrowLink
                             href='/about'
-                            className='font-light uppercase md:text-lg'
+                            className='mt-4 font-light uppercase md:text-lg'
                         >
-                            about me
+                            more about me
                         </ArrowLink>
                     </div>
                 </div>
             </section>
 
-            <section className='layout my-16 flex flex-col items-start'>
-                <h2 className='mb-8 font-serif text-xl font-normal lowercase md:text-3xl'>
-                    featured project
+            <section className='layout my-32'>
+                <h2 className='mb-12 text-center font-serif text-xl font-semibold lowercase md:text-3xl'>
+                    my experience
                 </h2>
 
-                <ContentCard
-                    slug={featured.slug}
-                    type='projects'
-                    title={featured.frontmatter.title}
-                    description={featured.frontmatter.description}
-                    imageURL={featured.frontmatter.imageURL}
-                    category={featured.frontmatter.category}
-                />
-
-                <UnderlineLink
-                    href='/projects'
-                    className='mt-12 self-center font-light uppercase md:text-lg'
-                >
-                    see all projects
-                </UnderlineLink>
+                <Timeline />
             </section>
 
-            <section className='layout py-16'>
-                <h2 className='mb-8 font-serif text-xl font-normal lowercase md:text-3xl'>
-                    let&apos;s work together!
-                </h2>
-                <ButtonLink variant='outline' href='/contact'>
-                    contact me
-                </ButtonLink>
+            <section className='bg-light flex flex-col items-start py-32'>
+                <div className='layout'>
+                    <h2 className='mb-8 font-serif text-xl font-semibold lowercase md:text-3xl'>
+                        i also make some side projects
+                    </h2>
+
+                    <div className='grid gap-4 md:grid-cols-2 '>
+                        {features.map(
+                            ({
+                                slug,
+                                frontmatter: {
+                                    type,
+                                    title,
+                                    description,
+                                    imageURL,
+                                    category,
+                                },
+                            }) => (
+                                <ContentCard
+                                    key={slug}
+                                    {...{
+                                        slug,
+                                        type,
+                                        title,
+                                        description,
+                                        imageURL,
+                                        category,
+                                    }}
+                                />
+                            )
+                        )}
+                    </div>
+
+                    <ButtonLink
+                        variant='outline'
+                        href='/projects'
+                        className='mt-4'
+                    >
+                        see more projects
+                    </ButtonLink>
+                </div>
+            </section>
+
+            <section className='py-32'>
+                <div className='layout flex flex-col items-center'>
+                    <h2 className='mb-8 font-serif text-xl font-semibold lowercase md:text-3xl'>
+                        let&apos;s work together!
+                    </h2>
+                    <ButtonLink variant='outline' href='/contact'>
+                        contact me
+                    </ButtonLink>
+                </div>
             </section>
         </>
     )
