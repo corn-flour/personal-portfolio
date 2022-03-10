@@ -3,6 +3,7 @@ import React from 'react'
 
 import clsxm from '@/lib/clsxm'
 
+import ArrowLink from '../links/ArrowLink'
 import UnderlineLink from '../links/UnderlineLink'
 import SocialList from '../SocialList'
 
@@ -39,10 +40,16 @@ const Footer: NextPage = () => {
                     iconClass='text-lg'
                 />
             </div>
-            <div className='text-light mb-2 text-center text-xs font-thin'>
+            <div className='text-light mb-2 flex flex-col items-center justify-between gap-2 text-center text-xs font-thin md:flex-row'>
                 <span>
                     Copyright © 2022 Huy Anh Nguyen. All rights reserved.
                 </span>
+                <ArrowLink
+                    href='https://github.com/bte234/personal-portfolio'
+                    className='text-light'
+                >
+                    Site source code
+                </ArrowLink>
             </div>
         </footer>
     )
