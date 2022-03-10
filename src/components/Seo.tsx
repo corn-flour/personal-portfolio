@@ -7,10 +7,9 @@ import { openGraph } from '@/lib/helper'
 const defaultMeta = {
     title: 'Harry Nguyen',
     siteName: 'Harry Nguyen',
-    description:
-        'A starter for Next.js, Tailwind CSS, and TypeScript with Absolute Import, Seo, Link component, pre-configured with Husky',
+    description: "Harry Nguyen's personal portfolio",
     /** Without additional '/' on the end, e.g. https://theodorusclarence.com */
-    url: 'https://tsnext-tw.thcl.dev',
+    url: 'https://harrynguyendev.com',
     type: 'website',
     robots: 'follow, index',
     /** No need to be filled, will be populated with openGraph function */
