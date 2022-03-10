@@ -46,7 +46,7 @@ const Footer: NextPage = () => {
                 </span>
                 <ArrowLink
                     href='https://github.com/bte234/personal-portfolio'
-                    className='text-light'
+                    className='text-light font-light'
                 >
                     Site source code
                 </ArrowLink>
