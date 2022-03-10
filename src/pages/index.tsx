@@ -32,7 +32,7 @@ const Home = ({ projects }: InferGetStaticPropsType<typeof getStaticProps>) => {
                 <div className='layout flex flex-col-reverse items-center justify-between gap-16 pt-20 pb-40 lg:flex-row'>
                     <HomeGraphics className='flex-1' />
                     <div className='flex flex-col items-end'>
-                        <h1 className='mb-4 font-serif text-7xl font-normal lowercase tracking-wider text-primary-800 dark:text-primary-100'>
+                        <h1 className='mb-4 font-serif text-7xl font-normal lowercase tracking-wider'>
                             harry nguyen
                         </h1>
                         <p className='text-xl font-light uppercase'>
