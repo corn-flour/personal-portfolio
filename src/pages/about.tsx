@@ -47,11 +47,11 @@ const About: NextPage = () => {
                             September 2020, and made my first client website in
                             early 2021 as a part-time developer in Sandman
                             Media. Since then, I have had the chance to work
-                            with{' '}
+                            with numerous clients, and have&nbsp;
                             <UnderlineLink href='/projects'>
-                                numerous clients
-                            </UnderlineLink>{' '}
-                            and have learnt and grown a lot along the way.
+                                learnt and grown
+                            </UnderlineLink>
+                            &nbsp;a lot along the way.
                         </Paragraph>
 
                         <Paragraph className='md:mr-[10%]'>
