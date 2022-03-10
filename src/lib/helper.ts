@@ -12,7 +12,7 @@ export function openGraph({
     templateTitle,
     description,
     // !STARTERCONF Or, you can use my server with your own logo.
-    logo = 'https://harrynguyendev.com/images/logo.jpg',
+    logo = 'https://harrynguyendev.com/images/logo.png',
 }: OpenGraphType): string {
     const ogLogo = encodeURIComponent(logo)
     const ogSiteName = encodeURIComponent(siteName.trim())
