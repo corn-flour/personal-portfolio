@@ -75,7 +75,7 @@ const Home = ({ projects }: InferGetStaticPropsType<typeof getStaticProps>) => {
                         i also make some side projects
                     </h2>
 
-                    <div className='grid gap-4 md:grid-cols-2 '>
+                    <div className='grid gap-8 md:grid-cols-2 '>
                         {features.map(
                             ({
                                 slug,
