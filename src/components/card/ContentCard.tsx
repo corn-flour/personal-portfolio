@@ -34,7 +34,7 @@ const ContentCard = ({
                 'group',
                 'w-full bg-cover bg-center text-white',
                 'overflow-hidden transition duration-300',
-                'hover:scale-105 hover:!bg-black/75',
+                ' hover:-translate-y-3 hover:!bg-black/75',
                 'focus-within:outline'
             )}
         >
