@@ -1,6 +1,7 @@
 import { NextPage } from 'next'
 import React from 'react'
 
+import ButtonLink from '@/components/links/ButtonLink'
 import UnderlineLink from '@/components/links/UnderlineLink'
 import NextImage from '@/components/NextImage'
 import ListItem from '@/components/text/ListItem'
@@ -60,6 +61,15 @@ const About: NextPage = () => {
                                 let&apos;s get in touch!
                             </UnderlineLink>
                         </Paragraph>
+
+                        <ButtonLink
+                            variant='outline'
+                            href='/pdf/resume.pdf'
+                            openNewTab={true}
+                            className='text-sm font-normal uppercase'
+                        >
+                            my resume
+                        </ButtonLink>
                     </div>
                 </div>
 
@@ -76,7 +86,7 @@ const About: NextPage = () => {
             {/* #endregion  /**======== About Me Section =========== */}
 
             {/* #region  /**=========== Skillset Section =========== */}
-            <section className='layout py-16'>
+            <section className='layout py-32'>
                 <h2 className='font-serif text-xl font-light md:text-4xl'>
                     my skillset
                 </h2>
