@@ -7,7 +7,7 @@ import Paragraph from '@/components/text/Paragraph'
 
 const Contact: NextPage = () => {
     return (
-        <section className='layout my-16 flex flex-col gap-4 md:flex-row md:gap-16'>
+        <section className='layout mt-16 mb-32 flex flex-col gap-4 md:flex-row md:gap-16'>
             <div className='flex-1'>
                 <h1 className='font-serif text-5xl font-light lg:text-6xl'>
                     contact me

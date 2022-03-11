@@ -26,7 +26,7 @@ const ProjectPage = ({ code, frontmatter }: ProjectPageProps) => {
     const Component = React.useMemo(() => getMDXComponent(code), [code])
 
     return (
-        <section className='layout my-16'>
+        <section className='layout mt-16 mb-32'>
             <NextImage
                 src={frontmatter.imageURL}
                 alt={frontmatter.title}
