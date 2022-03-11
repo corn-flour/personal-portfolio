@@ -80,7 +80,6 @@ const Home = ({ projects }: InferGetStaticPropsType<typeof getStaticProps>) => {
                             ({
                                 slug,
                                 frontmatter: {
-                                    type,
                                     title,
                                     description,
                                     imageURL,
@@ -89,9 +88,9 @@ const Home = ({ projects }: InferGetStaticPropsType<typeof getStaticProps>) => {
                             }) => (
                                 <ContentCard
                                     key={slug}
+                                    type='projects'
                                     {...{
                                         slug,
-                                        type,
                                         title,
                                         description,
                                         imageURL,
