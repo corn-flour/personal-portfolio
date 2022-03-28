@@ -14,6 +14,7 @@ const ContactForm: NextPage = () => {
     const [inputs, setInputs] = React.useState(initialInputs)
     const [submitted, setSubmitted] = React.useState(false)
     const [isError, setIsError] = React.useState(false)
+    const [isLoading, setIsLoading] = React.useState(false)
 
     // * Special honeypot value to detect spam bots
     const [honeypot, setHoneypot] = React.useState('')
@@ -37,6 +38,8 @@ const ContactForm: NextPage = () => {
         }
         //#endregion  //*======== Handle Honeypot ===========
 
+        setIsLoading(true)
+
         const res = await fetch('/api/contact', {
             method: 'POST',
             headers: {
@@ -49,6 +52,8 @@ const ContactForm: NextPage = () => {
             setIsError(true)
             return
         })
+
+        setIsLoading(false)
 
         if (res && res.status === 200) {
             setSubmitted(true)
@@ -106,7 +111,12 @@ const ContactForm: NextPage = () => {
                 />
             </label>
 
-            <Button variant='outline' className='self-center' type='submit'>
+            <Button
+                variant='outline'
+                className='self-center'
+                type='submit'
+                isLoading={isLoading}
+            >
                 Send Message
             </Button>
 
