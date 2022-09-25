@@ -1,0 +1,9 @@
+# Ignore artifacts:
+build
+coverage
+.next
+node_modules
+public
+
+# old version
+__old-to-be-removed

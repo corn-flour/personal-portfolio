@@ -1,0 +1,48 @@
+---
+title: 'Cornflower'
+description: 'A simple discord bot that handles club management.'
+tech: 'node.js, discord.js'
+category: 'other'
+year: 2021
+featured: true
+githubURL: 'https://github.com/bte234/DiscordBot'
+imageURL: '/images/projects/discord-banner.png'
+---
+
+## What this is
+
+Cornflower allows the server admins to create and manage clubs for their members.
+Members can join any club that they are interested in, or leave a club they are in easily.
+Server admins can also assign club presidents who can manage members of their own club.
+
+Cornflower is designed to be as simple as possible and does not use any external database for storage.
+Instead, it uses Discord roles to manage club members.
+
+Cornflower used to be hosted in repl.it, but as I do not use it anymore, it now only exists as a repository.
+
+## Features
+
+-   Get list of bot commands or a command info with **c?help**
+-   Get list of server clubs with c?clubs
+-   Join a club with **c?join \[clubName\]**
+-   Leave a club with **c?leave \[clubName\]**
+-   (admin) Create a club with **c?create \[clubName\]**
+-   (admin) Delete a club with **c?delete \[clubName\]**
+-   (admin) Set a member as club president with **c?president \[user\] \[clubName\]**
+-   (admin/president) Temporarily mute a member from a club with **c?tempmute \[user\] \[time\] \[clubName\]**
+-   (admin/president) Mute a member from a club with **c?mute \[user\] \[clubName\]**
+-   (admin/president) Unmute a member from a club with **c?unmute \[user\] \[clubName\]**
+-   Ban a member from a club: TODO
+
+## Why it's made
+
+A server owner friend of mine was expressing interests on a club feature as described for their server,
+as the number of channels on the server keeps increasing, and there are also more channels about topics
+that the members are interested in, but works better as an opt-in channel rather than a main one. They also
+want to be able to assign club presidents to manage the club channels so as to reduce work on the server admins,
+but also do not necessarily trust them enough to give them admin permissions. As Discord's base features could not
+solve these issues, I collaborated with [another friend of mine](https://github.com/Knamer95) make a bot that can do so.
+
+The server owner did not end up needing the feature since there were less new topics that's worth making a channel for,
+and since Discord introduced threads, which also helps with managing the channels. Still, I was able to learn quite a bit
+with this experience
